@@ -124,21 +124,15 @@ body {
 
 .nav-label,
 .brand-text,
-.theme-text,
 .user-chip {
   transition: opacity 0.2s ease;
 }
 
 .sidebar.collapsed .nav-label,
 .sidebar.collapsed .brand-text,
-.sidebar.collapsed .theme-text,
 .sidebar.collapsed .user-chip {
   opacity: 0;
   pointer-events: none;
-}
-
-.sidebar.collapsed .theme-pill {
-  justify-content: center;
 }
 
 .sidebar-bottom {
@@ -147,16 +141,6 @@ body {
   gap: 12px;
   padding-top: 12px;
   border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-.theme-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 999px;
-  padding: 8px 10px;
-  width: fit-content;
 }
 
 .user-chip {
@@ -289,9 +273,18 @@ body {
   margin-bottom: 16px;
 }
 
+/* ✨ UPDATED FEATURE CARD HOVER */
 .feature-card {
   padding: 18px;
   min-height: 150px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+  border-color: #2563eb;
 }
 
 .feature-card h3 {
@@ -326,6 +319,15 @@ body {
   margin: 0;
   padding-left: 20px;
   line-height: 1.6;
+}
+
+/* 📄 Page system */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
 }
 
 @media (max-width: 1100px) {
