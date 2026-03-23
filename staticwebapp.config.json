@@ -1,6 +1,14 @@
 {
   "routes": [
     {
+      "route": "/style.css",
+      "allowedRoles": ["anonymous", "authenticated"]
+    },
+    {
+      "route": "/app.js",
+      "allowedRoles": ["anonymous", "authenticated"]
+    },
+    {
       "route": "/",
       "allowedRoles": ["anonymous", "authenticated"]
     },
