@@ -2,10 +2,12 @@ const sidebar = document.getElementById("sidebar");
 const collapseBtn = document.getElementById("collapseBtn");
 const collapseIcon = document.getElementById("collapseIcon");
 
-collapseBtn.addEventListener("click", () => {
-  sidebar.classList.toggle("collapsed");
-  collapseIcon.textContent = sidebar.classList.contains("collapsed") ? "▶" : "◀";
-});
+if (collapseBtn && sidebar && collapseIcon) {
+  collapseBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("collapsed");
+    collapseIcon.textContent = sidebar.classList.contains("collapsed") ? "▶" : "◀";
+  });
+}
 
 async function getUser() {
   const response = await fetch("/.auth/me");
@@ -13,10 +15,12 @@ async function getUser() {
 
   const userInfo = document.getElementById("userInfo");
 
-  if (data.clientPrincipal) {
-    userInfo.textContent = `Logged in as: ${data.clientPrincipal.userDetails}`;
-  } else {
-    userInfo.textContent = "Not logged in";
+  if (userInfo) {
+    if (data.clientPrincipal) {
+      userInfo.textContent = `Logged in as: ${data.clientPrincipal.userDetails}`;
+    } else {
+      userInfo.textContent = "Not logged in";
+    }
   }
 }
 
