@@ -1,12 +1,27 @@
+const sidebar = document.getElementById("sidebar");
+const collapseBtn = document.getElementById("collapseBtn");
+const collapseIcon = document.getElementById("collapseIcon");
+
+collapseBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("collapsed");
+  collapseIcon.textContent = sidebar.classList.contains("collapsed") ? "▶" : "◀";
+});
+
 async function getUser() {
   const response = await fetch("/.auth/me");
   const data = await response.json();
 
+  const userInfo = document.getElementById("userInfo");
+
   if (data.clientPrincipal) {
-    document.getElementById("user").innerText =
-      "Logged in as: " + data.clientPrincipal.userDetails;
+    userInfo.textContent = `Logged in as: ${data.clientPrincipal.userDetails}`;
   } else {
-    document.getElementById("user").innerText =
-      "Not logged in";
+    userInfo.textContent = "Not logged in";
   }
 }
+
+function logout() {
+  window.location.href = "/.auth/logout";
+}
+
+window.addEventListener("load", getUser);
