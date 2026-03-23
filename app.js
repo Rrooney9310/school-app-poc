@@ -14,12 +14,25 @@ async function getUser() {
   const data = await response.json();
 
   const userInfo = document.getElementById("userInfo");
+  const sidebarUser = document.getElementById("sidebarUser");
 
-  if (userInfo) {
-    if (data.clientPrincipal) {
-      userInfo.textContent = `Logged in as: ${data.clientPrincipal.userDetails}`;
-    } else {
+  if (data.clientPrincipal) {
+    const userText = data.clientPrincipal.userDetails;
+
+    if (userInfo) {
+      userInfo.textContent = `Logged in as: ${userText}`;
+    }
+
+    if (sidebarUser) {
+      sidebarUser.textContent = userText;
+    }
+  } else {
+    if (userInfo) {
       userInfo.textContent = "Not logged in";
+    }
+
+    if (sidebarUser) {
+      sidebarUser.textContent = "Guest";
     }
   }
 }
