@@ -11,7 +11,11 @@
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-top">
         <div class="brand">
-          <div class="brand-icon">✓</div>
+         <div class="brand-icon">
+  <div class="stamp-box">
+    <span>✓</span>
+  </div>
+</div>
           <span class="brand-text">STAMP</span>
         </div>
         <button class="collapse-btn" id="collapseBtn" aria-label="Toggle menu">
@@ -46,15 +50,10 @@
         </button>
       </nav>
 
-      <div class="sidebar-bottom">
-        <div class="theme-pill">
-          <span class="theme-icon">◐</span>
-          <span class="theme-text">Light</span>
-        </div>
-       <div class="user-chip" id="sidebarUser">Signed in</div>
-      </div>
-    </aside>
-
+<div class="sidebar-bottom">
+  <div class="user-chip" id="sidebarUser">Signed in</div>
+</div>
+</aside>
     <main class="main-content" id="mainContent">
       <section class="hero-card">
         <div class="welcome-pill">Welcome to</div>
@@ -85,8 +84,6 @@
         </p>
 
         <div class="hero-actions">
-          <button class="primary-btn">Explore the new SPB Database →</button>
-          <button class="secondary-btn" onclick="getUser()">Who am I?</button>
           <button class="secondary-btn" onclick="logout()">Logout</button>
         </div>
       </section>
