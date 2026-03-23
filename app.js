@@ -5,9 +5,8 @@ async function getUser() {
   if (data.clientPrincipal) {
     document.getElementById("user").innerText =
       "Logged in as: " + data.clientPrincipal.userDetails;
+  } else {
+    document.getElementById("user").innerText =
+      "Not logged in";
   }
-}
-
-function logout() {
-  window.location.href = "/.auth/logout";
 }
