@@ -1,18 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>School App</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STAMP</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>School App 🚀</h1>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">
+          <div class="brand-icon">✓</div>
+          <span class="brand-text">STAMP</span>
+        </div>
+        <button class="collapse-btn" id="collapseBtn" aria-label="Toggle menu">
+          <span id="collapseIcon">◀</span>
+        </button>
+      </div>
 
-  <p><a href="/.auth/login/github?post_login_redirect_uri=/">Login with GitHub</a></p>
-  <p><a href="/.auth/logout">Logout</a></p>
+      <nav class="nav">
+        <button class="nav-item active">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-label">Dashboard</span>
+        </button>
+        <button class="nav-item">
+          <span class="nav-icon">🎯</span>
+          <span class="nav-label">SPB Database</span>
+        </button>
+        <button class="nav-item">
+          <span class="nav-icon">📊</span>
+          <span class="nav-label">BGE Assessment</span>
+        </button>
+        <button class="nav-item">
+          <span class="nav-icon">💪</span>
+          <span class="nav-label">PE Performance</span>
+        </button>
+        <button class="nav-item">
+          <span class="nav-icon">⚙️</span>
+          <span class="nav-label">School Settings</span>
+        </button>
+        <button class="nav-item">
+          <span class="nav-icon">📈</span>
+          <span class="nav-label">Analytics</span>
+        </button>
+      </nav>
 
-  <button onclick="getUser()">Who am I?</button>
-  <p id="user"></p>
+      <div class="sidebar-bottom">
+        <div class="theme-pill">
+          <span class="theme-icon">◐</span>
+          <span class="theme-text">Light</span>
+        </div>
+        <div class="user-chip">R. Rooney</div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="mainContent">
+      <section class="hero-card">
+        <div class="welcome-pill">Welcome to</div>
+        <h1>STAMP</h1>
+        <h2>School Tracking &amp; Monitoring Portal</h2>
+
+        <p>
+          STAMP is aimed at <strong>centralising key student data</strong> to enable better,
+          <strong>data-informed interventions</strong>. It streamlines how we capture, view and
+          act on pupil information so data is <strong>accessible</strong>,
+          <strong>easy to analyse</strong> and <strong>actionable</strong>.
+        </p>
+
+        <div class="badge-row">
+          <span class="badge">Pilot: Year 2 of 3</span>
+          <span class="badge badge-outline" id="userInfo">Signed in</span>
+        </div>
+
+        <p class="muted-text">
+          This system is currently part of a pilot programme involving
+          <strong>Uddingston Grammar</strong> and <strong>Holy Cross</strong>.
+          Some access is restricted to specific departments.
+        </p>
+
+        <p class="muted-text">
+          If your department is interested in joining the next phase of the pilot,
+          or you have feedback, please contact <strong>R. Rooney</strong>.
+        </p>
+
+        <div class="hero-actions">
+          <button class="primary-btn">Explore the new SPB Database →</button>
+          <button class="secondary-btn" onclick="getUser()">Who am I?</button>
+          <button class="secondary-btn" onclick="logout()">Logout</button>
+        </div>
+      </section>
+
+      <section class="card-grid">
+        <article class="feature-card border-blue">
+          <div class="feature-icon">🎯</div>
+          <h3>Opportunities</h3>
+          <p>Track interventions and actions.</p>
+        </article>
+
+        <article class="feature-card border-amber">
+          <div class="feature-icon">🏠</div>
+          <h3>House Points</h3>
+          <p>Award points, view leaders and trends.</p>
+        </article>
+
+        <article class="feature-card border-sky">
+          <div class="feature-icon">💪</div>
+          <h3>PE Performance</h3>
+          <span class="mini-badge">PE only</span>
+          <p>Performance tracking and feedback.</p>
+        </article>
+
+        <article class="feature-card border-rose">
+          <div class="feature-icon">🎒</div>
+          <h3>PE Kit</h3>
+          <span class="mini-badge">PE only</span>
+          <p>Support readiness and engagement.</p>
+        </article>
+
+        <article class="feature-card border-green">
+          <div class="feature-icon">📊</div>
+          <h3>BGE Assessment</h3>
+          <span class="mini-badge mini-badge-grey">Pilot only</span>
+          <p>Available to pilot faculties at present.</p>
+        </article>
+
+        <article class="feature-card border-purple">
+          <div class="feature-icon">⚙️</div>
+          <h3>School Settings</h3>
+          <span class="mini-badge mini-badge-grey">Admins only</span>
+          <p>Manage staffing, students and departments.</p>
+        </article>
+      </section>
+
+      <section class="support-card">
+        <h3>Access &amp; Support</h3>
+        <ul>
+          <li><strong>BGE Assessment</strong> is currently available only to faculties involved in the pilot.</li>
+          <li>If you’ve not recognised your access correctly, speak to your school contact.</li>
+          <li>
+            For technical issues, errors or suggestions for improvement, contact
+            <strong>Rebecca Rooney</strong>.
+          </li>
+        </ul>
+      </section>
+    </main>
+  </div>
 
   <script src="app.js"></script>
 </body>
