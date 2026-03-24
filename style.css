@@ -72,6 +72,12 @@ body {
   font-weight: 700;
   flex-shrink: 0;
 }
+.stamp-box {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+}
 
 .brand-text {
   font-size: 1.7rem;
