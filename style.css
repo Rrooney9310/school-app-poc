@@ -429,4 +429,12 @@ body {
   .hero-card h1 {
     font-size: 1.8rem;
   }
+  .topbar {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.topbar-user {
+  width: fit-content;
+}
 }
