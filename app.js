@@ -16,8 +16,9 @@ async function getUser() {
     const response = await fetch("/.auth/me");
     const data = await response.json();
 
-    const userInfo = document.getElementById("userInfo");
-    const sidebarUser = document.getElementById("sidebarUser");
+   const userInfo = document.getElementById("userInfo");
+const sidebarUser = document.getElementById("sidebarUser");
+const topbarUser = document.getElementById("topbarUser");
 
     if (data.clientPrincipal) {
       const userText = data.clientPrincipal.userDetails;
@@ -26,9 +27,13 @@ async function getUser() {
         userInfo.textContent = userText;
       }
 
-      if (sidebarUser) {
-        sidebarUser.textContent = userText;
-      }
+  if (sidebarUser) {
+  sidebarUser.textContent = userText;
+}
+
+if (topbarUser) {
+  topbarUser.textContent = userText;
+}
     }
   } catch (err) {
     console.error("User fetch failed", err);
@@ -43,6 +48,35 @@ function logout() {
 // Page navigation system
 const navItems = document.querySelectorAll(".nav-item");
 const pages = document.querySelectorAll(".page");
+const topbarTitle = document.querySelector(".topbar-title");
+const topbarSubtitle = document.querySelector(".topbar-subtitle");
+
+const pageMeta = {
+  dashboardPage: {
+    title: "Dashboard",
+    subtitle: "Overview of key areas in STAMP"
+  },
+  spbPage: {
+    title: "SPB Database",
+    subtitle: "Student planning and tracking tools"
+  },
+  assessmentPage: {
+    title: "BGE Assessment",
+    subtitle: "Assessment overview and pilot faculty tools"
+  },
+  performancePage: {
+    title: "PE Performance",
+    subtitle: "Performance tracking and feedback"
+  },
+  settingsPage: {
+    title: "School Settings",
+    subtitle: "Manage staffing, students and departments"
+  },
+  analyticsPage: {
+    title: "Analytics",
+    subtitle: "View trends, patterns and key measures"
+  }
+};
 
 navItems.forEach(item => {
   item.addEventListener("click", () => {
@@ -50,19 +84,22 @@ navItems.forEach(item => {
 
     if (!target) return;
 
-    // Remove active states
     navItems.forEach(i => i.classList.remove("active"));
     pages.forEach(p => p.classList.remove("active"));
 
-    // Activate selected
     item.classList.add("active");
 
     const targetPage = document.getElementById(target);
     if (targetPage) {
       targetPage.classList.add("active");
     }
+
+    if (pageMeta[target]) {
+      if (topbarTitle) topbarTitle.textContent = pageMeta[target].title;
+      if (topbarSubtitle) topbarSubtitle.textContent = pageMeta[target].subtitle;
+    }
   });
-});
+});;
 
 // Run on load
 window.addEventListener("load", getUser);
